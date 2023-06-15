@@ -1,0 +1,196 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+.secskills{
+    background-color: var(--primary-color);
+    height: 800px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.skills-title{
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    padding-top: 20px;
+}
+
+.skills-shape{
+    box-shadow: 0 4px 10px black;
+    border-radius: 42px;
+    padding: 0.2em 0.3em;
+    margin: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 50vh;
+    overflow: hidden;
+    background-color: #fff;
+}
+
+.shape{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: Poppins,sans-serif;
+}
+
+.body-shape{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 80px 100px;
+    flex-wrap: wrap;
+}
+
+.container .box{
+    position: relative;
+    width: 240px;
+    height: 240px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container .box::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 100%;
+    filter: blur(1px);
+    z-index: 1;
+}
+
+.container .box::after{
+    content: '';
+    position: absolute;
+    top: 1;
+    right: -1;
+    width: 20px;
+    height: 100%;
+    filter: blur(1px);
+    z-index: 1;
+}
+
+.container .box .content{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.container .box .content .percent{
+    position: relative;
+    width: 150px;
+    height: 150px;
+}
+
+.container .box .content .percent::before{
+    content: attr(data-text);
+    position: absolute;
+    inset: 20px;
+    background: #0096F1;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 1.75em;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.container .box .content .percent svg{
+    position: relative;
+    width: 150px;
+    height: 150px;
+    transform: rotate(270deg);
+}
+
+.container .box .content .percent svg circle{
+    width: 100%;
+    height: 100%;
+    fill: transparent;
+    stroke-width: 7;
+    stroke: rgba(0,0,0,0.05);
+    transform: translate(5px,5px)
+}
+
+.container .box .content .percent svg circle:nth-child(2){
+    stroke: #0096F1;
+    stroke-dasharray: 440;
+    stroke-dashoffset: calc(440 - (440 * var(--num))/ 100);
+    opacity: 0;
+    animation: fadeIn 1s linear forwards;
+    animation-delay: 2.5s;
+}
+
+@keyframes fadeIn{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+.container .box .content .percent .dot{
+    position: absolute;
+    inset: 5px;
+    z-index: 10;
+    animation: animateDot 2s linear forwards;
+}
+
+@keyframes animateDot{
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(calc(3.6deg * var(--num)));
+    }
+}
+
+.container .box .content .percent .dot::before{
+    content: '';
+    position: absolute;
+    left: 50%;
+    top:-7px;
+    transform: translate(-50%);
+    width: 14px;
+    height: 14px;
+    background: #0096F1;
+    border-radius: 50%;
+}
+
+.container .box .content .number{
+    position: relative;
+    inset: 0;
+    opacity: 0;
+    animation: fadeIn 1s linear forwards;
+    animation-delay: 2.5s;
+}
+
+.container .box .content .number h2{
+    font-size: 2.5em;
+    color: #555;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container .box .content .number h2 span{
+    font-weight: 300;
+    font-size: 0.5em;
+    margin-left: 5px;
+}
